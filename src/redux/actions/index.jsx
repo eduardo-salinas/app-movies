@@ -1,28 +1,35 @@
+export const ADD_MOVIE_FAVORITE = "ADD_MOVIE_FAVORITE";
+export const REMOVE_MOVIE_FAVORITE = "REMOVE_MOVIE_FAVORITE";
+export const GET_MOVIES_DETAIL = "GET_MOVIES_DETAIL";
+export const GET_MOVIES = "GET_MOVIES";
+export const LOADING="LOADING";
+
 export function addMovieFavorite(payload) {
-    return { type: "ADD_MOVIE_FAVORITE", payload };
+    return { type: ADD_MOVIE_FAVORITE, payload };
 }
 
 export function removeMovieFavorite(id) {
-    return { type: "REMOVE_MOVIE_FAVORITE", payload: id };
+    return { type: REMOVE_MOVIE_FAVORITE, payload: id };
 }
 
 export function getMovies(titulo) {
     return function (dispatch) {
+        dispatch({ type: LOADING });
         return fetch("http://www.omdbapi.com/?apikey=20dac387&s=" + titulo)
             .then(response => response.json())
             .then(obj => {
-                dispatch({ type: "GET_MOVIES", payload: obj });
+                dispatch({ type: GET_MOVIES, payload: obj });
             });
     };
 }
 
 export function getMovieDetail(id) {
     return function (dispatch) {
-        dispatch({ type: 'LOADING' });
+        dispatch({ type: LOADING });
         return fetch("http://www.omdbapi.com/?apikey=20dac387&i=" + id)
             .then(response => response.json())
             .then(obj => {
-                dispatch({ type: "GET_MOVIE_DETAIL", payload: obj });
+                dispatch({ type: GET_MOVIES_DETAIL, payload: obj });
             });
     };
 }
