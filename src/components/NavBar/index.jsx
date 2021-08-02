@@ -3,19 +3,18 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <header className="navbar">
-            <div>
-                <img id="logoHenry" src={""} width="30" height="30" className="d-inline-block align-top" alt="" />
-            </div>
+        <nav class="navbar navbar-dark bg-dark">
             <nav>
                 <ul className="list">
                     <li className="list-item">
                         <NavLink exact to="/" >Home</NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/favs" >Favoritas</NavLink>
                     </li>
                 </ul>
             </nav>
-        </header>
+        </nav>
     )
 };
 

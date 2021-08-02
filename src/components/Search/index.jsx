@@ -24,6 +24,8 @@ const Search = () => {
                 <div>
                     <label>Movie: </label>
                     <input
+                        className="form-control"
+                        placeholder="Search Movie"
                         type="text"
                         id="title"
                         autoComplete="off"
@@ -31,7 +33,7 @@ const Search = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit">Go</button>
+                <button type="submit" className="btn btn-outline-dark">Go</button>
             </form>
             <ul>
                 {store.moviesLoaded && store.moviesLoaded.map(movie =>

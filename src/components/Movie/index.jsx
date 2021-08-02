@@ -8,15 +8,15 @@ const Movie = ({match}) =>{
     const store=useSelector (state=>state);
     useEffect(()=>{
         dispatch(getMovieDetail(match.params.id))
-    });
+    },[dispatch]);
 
     return (
-        <div>
+        <div className="card">
             {store.loading ? <h2> Loading ... </h2> :
             <div>
-                <h4>{store.movie.Title}</h4>
-                <h4>{store.movie.Year}</h4>
-                <h4>{store.movie.Plot}</h4>
+                <h4>{store.movieDetail.Title}</h4>
+                <h4>{store.movieDetail.Year}</h4>
+                <h4>{store.movieDetail.Plot}</h4>
             </div>                
             }
         </div>
