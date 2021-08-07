@@ -22,10 +22,12 @@ export const getMovies = (titulo) => { //busco peliculas por titulo
         dispatch({ type: LOADING });
         try {
             const movies = await axios.get(`${URL}apikey=${API_KEY}&s=` + titulo)
-            return dispatch({ type: GET_MOVIES, payload: movies.data });
+            return movies.data.Response === "False" ?
+                dispatch({ type: GET_MOVIES, payload: { Search: [{err:"Movie not found"}] } }) :
+                dispatch({ type: GET_MOVIES, payload: movies.data });
         } catch (e) {
             console.log(e);
-            return dispatch({ type: GET_MOVIES, payload: {} });
+            return dispatch({ type: GET_MOVIES, payload: { Search: [] } });
         }
 
     };
@@ -37,7 +39,7 @@ export const getMovieDetail = (id) => { //busco pelicula por id y me trae sus de
         try {
             const movie = await axios.get(`${URL}apikey=${API_KEY}&i=` + id)
             return dispatch({ type: GET_MOVIES_DETAIL, payload: movie.data });
-        } catch (e){
+        } catch (e) {
             console.log(e);
             return dispatch({ type: GET_MOVIES_DETAIL, payload: {} });
         }

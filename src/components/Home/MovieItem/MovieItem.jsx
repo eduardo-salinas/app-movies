@@ -11,8 +11,8 @@ const MovieItem = ({ id, title, img, movie }) => {
     return (
         <StyledMovie>
             <div class="card text-white bg-danger mb-3">
-                <NavLink to={`/movie/${id}`}>
-                    <h5 className="card-header">
+                <NavLink className="card-header" to={`/movie/${id}`}>
+                    <h5 >
                         {title}
                     </h5>
                 </NavLink>
