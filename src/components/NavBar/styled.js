@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 const StyledNav = styled.div`
-text-align:center;
-background-color: #FFC947;
+.navbar {   
+    background-color: #8D2828;
+}
 .navbar-brand{
-    color:black;
+    color:#EDEDED;
 }
 `
 
