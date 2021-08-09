@@ -23,6 +23,10 @@ img{
     border: none;
     background-color: transparent;
 }
+.infav{
+    width: 80px;
+    height: 80px; 
+}
 .favorite{
     filter:grayscale(100%);
     width: 80px;
