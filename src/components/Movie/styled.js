@@ -10,6 +10,7 @@ margin-top: 50px;
     img{
         float: left;
         height: 650px;
+        max-width: 40%;
     }
 }
 

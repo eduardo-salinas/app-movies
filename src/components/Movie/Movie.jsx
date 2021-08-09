@@ -15,9 +15,10 @@ const Movie = ({ match }) => {
         dispatch(getMovieDetail(match.params.id))
     }, [dispatch]);
     useEffect(() => {
-        store.moviesFavorites.map(movie => movie.imdbID === store.movieDetail.imdbID ?
+        store.moviesFavorites.map(movie => movie.imdbID === match.params.id ?
             setFavDetail(true) : false);
-    }, [dispatch, store.moviesFavorites, match.params.id]);
+        return () => setFavDetail(false);
+    }, [dispatch, store.moviesFavorites]);
 
     const handleClick = () => {
         if (favDetail) {
