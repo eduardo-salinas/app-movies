@@ -17,11 +17,11 @@ export const removeMovieFavorite = (id) => {
     return { type: REMOVE_MOVIE_FAVORITE, payload: id };
 }
 
-export const getMovies = (titulo) => { //busco peliculas por titulo
+export const getMovies = (title, page) => { //busco peliculas por titulo
     return async (dispatch) => {
         dispatch({ type: LOADING });
         try {
-            const movies = await axios.get(`${URL}apikey=${API_KEY}&s=` + titulo)
+            const movies = await axios.get(`${URL}apikey=${API_KEY}&s=${title}&page=${page}`)
             return movies.data.Response === "False" ?
                 dispatch({ type: GET_MOVIES, payload: { Search: [{ err: "Movie not found" }] } }) :
                 dispatch({ type: GET_MOVIES, payload: movies.data });
