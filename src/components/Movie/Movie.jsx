@@ -13,11 +13,12 @@ const Movie = ({ match }) => {
 
     useEffect(() => {
         dispatch(getMovieDetail(match.params.id))
-    }, [dispatch]);
+    }, [dispatch,match.params.id]);
     useEffect(() => {
-        store.moviesFavorites.map(movie => movie.imdbID === store.movieDetail.imdbID ?
+        store.moviesFavorites.map(movie => movie.imdbID === match.params.id ?
             setFavDetail(true) : false);
-    }, [dispatch, store.moviesFavorites, match.params.id]);
+        return () => setFavDetail(false);
+    }, [dispatch, store.moviesFavorites,match.params.id]);
 
     const handleClick = () => {
         if (favDetail) {

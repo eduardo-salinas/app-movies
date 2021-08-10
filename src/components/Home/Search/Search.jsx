@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getMovies } from "../../../redux/actions";
 import { BiCameraMovie } from "react-icons/bi";
-import StyledSearch from "./styled.js";
+import {StyledSearch} from "../styled.js";
 
-const Search = () => {
+const Search = ({ setPageNumber, setSearch }) => {
     const [input, setInput] = useState({ title: "" });
     const dispatch = useDispatch();
 
@@ -14,7 +14,9 @@ const Search = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(getMovies(input.title));
+        dispatch(getMovies(input.title,1));
+        setSearch(input.title);
+        setPageNumber(1);
         setInput({ title: "" });
     }
 
