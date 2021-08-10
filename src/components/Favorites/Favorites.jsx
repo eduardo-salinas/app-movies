@@ -8,7 +8,11 @@ const Favorites = () => {
         <div>
             <h2>Favorite Movies</h2>
             {store.moviesFavorites && store.moviesFavorites.map(movie =>
-                <FavoriteCard id={movie.imdbID} title={movie.Title} />)}
+                <FavoriteCard 
+                id={movie.imdbID} 
+                title={movie.Title} 
+                year={movie.Year} 
+                type={movie.Type}/>)}
         </div>
     )
 };
