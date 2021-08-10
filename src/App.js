@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { Route } from "react-router-dom";
 import Movie from "./components/Movie/Movie";
 import Home from "./components/Home/Home";
+import About from "./components/About/About";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route exact path="/" component={Home} />
       <Route path="/favs" component={Favorites} />
       <Route path="/movie/:id" component={Movie} />
+      <Route path="/about" component={About} />
     </React.Fragment>
   );
 }
