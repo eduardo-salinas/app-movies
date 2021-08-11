@@ -5,8 +5,9 @@ export const REMOVE_MOVIE_FAVORITE = "REMOVE_MOVIE_FAVORITE";
 export const GET_MOVIES_DETAIL = "GET_MOVIES_DETAIL";
 export const GET_MOVIES = "GET_MOVIES";
 export const LOADING = "LOADING";
+const URL="http://www.omdbapi.com/?apikey=";
 
-const URL = process.env.REACT_APP_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 
 
@@ -24,7 +25,7 @@ export const getMovies = (title, page) => { //busco peliculas por titulo
         dispatch({ type: LOADING });
         console.log ("apii----------", URL)
         try {
-            const movies = await axios.get(`${URL}&s=${title}&page=${page}`)
+            const movies = await axios.get(`${URL+API_KEY}&s=${title}&page=${page}`)
             return movies.data.Response === "False" ?
                 dispatch({ type: GET_MOVIES, payload: { Search: [{ err: "Movie not found" }] } }) :
                 dispatch({ type: GET_MOVIES, payload: movies.data });
@@ -40,7 +41,7 @@ export const getMovieDetail = (id) => { //busco pelicula por id y me trae sus de
     return async (dispatch) => {
         dispatch({ type: LOADING });
         try {
-            const movie = await axios.get(`${URL}&i=` + id)
+            const movie = await axios.get(`${URL+API_KEY}&i=` + id)
             return movie.data.Response === "False" ?
                 dispatch({ type: GET_MOVIES_DETAIL, payload: { err: "Movie not found" } }) :
                 dispatch({ type: GET_MOVIES_DETAIL, payload: movie.data });
