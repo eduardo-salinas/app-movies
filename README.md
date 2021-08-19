@@ -15,7 +15,7 @@ Los estilos en este proyecto fueron realizados con Bootstrap y es full responsiv
 * __Bootstrap__
  
 
-## Previews 🍝
+## Previews 🎬
 
 <p align='left'>
     <img src='./images/home.jpg' </img>
