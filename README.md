@@ -4,7 +4,7 @@
 
 # Cinema-Movies
 - Proyecto realizado para fines practicos durante el Bootcamp [Soy Henry](https://www.soyhenry.com/) 
-- Debia realizar una web de series y peliculas. Donde renderice las mismas y pueda ver sus detalles. Ademas poder agregarlas y eliminarlas de una lista de favoritos.
+- Debía realizar un sitio web de series y películas. Donde renderice las mismas y pueda buscarlas por nombre y también ver sus detalles. Además, poder agregarlas y eliminarlas de una lista de favoritos.
 Los estilos en este proyecto fueron realizados con Bootstrap y es full responsive.
 - [LINK](https://moviescinema-app.vercel.app/)
 
