@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { getMovies } from "../../../redux/actions";
 import { BiCameraMovie } from "react-icons/bi";
 import {StyledSearch} from "../styled.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, FormControl } from "react-bootstrap";
 
 const Search = ({ setPageNumber, setSearch }) => {
     const [input, setInput] = useState({ title: "" });
@@ -22,10 +24,8 @@ const Search = ({ setPageNumber, setSearch }) => {
 
     return (
         <StyledSearch>
-            <div className="container-fluid">
                 <form onSubmit={handleSubmit} className="d-flex">
-                    <input
-                        className="form-control me-2"
+                    <FormControl
                         placeholder="Search Movie"
                         type="search"
                         id="title"
@@ -33,9 +33,8 @@ const Search = ({ setPageNumber, setSearch }) => {
                         value={input.title}
                         onChange={handleChange}
                     />
-                    <button type="submit" className="btn btn-outline-dark"><BiCameraMovie /></button>
-                </form>
-            </div>
+                    <Button variant="dark" type="submit"><BiCameraMovie /></Button>
+                </form>           
         </StyledSearch>
     )
 };

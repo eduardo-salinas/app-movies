@@ -4,15 +4,17 @@ const StyledHome = styled.div`
 .all {
     margin:0px 30px 0px 30px;
     }
-.paginate{
-    margin-left: 80%;
-}
+
+
 .error{
     color:#EDEDED;
     font-size: 2rem;
 }
 `
 const StyledPag = styled.div`
+display:flex;
+justify-content: flex-end;
+margin:20px;
    .page-link {
        color:#EDEDED;
     background-color: #8D2828;
@@ -25,24 +27,24 @@ const StyledMovie = styled.div`
 margin: 0px 10px 20px 10px;
 width: 350px;
 height: 550px;
-border: none;
-text-decoration: none;
-
-.card-header{
-    color:#EDEDED;
-    height: 60px;
-    background-color: #8D2828;
-}
-.card-header:hover{
-    text-align:center;
-    transform: scale(1.02);
-}
 img{
     height: 490px;
 }
+.title{
+    text-align:center;
+    text-decoration:none;
+    color:#EDEDED;
+    background-color: #8D2828;
+    height: 50px;
+}
+.title:hover{
+    cursor: pointer;
+    color:gray
+}
 .btn{
+    margin-bottom:15px;
     border: none;
-    background-color: transparent;
+    background-color: transparent;  
 }
 .infav{
     width: 80px;
@@ -64,8 +66,9 @@ img{
 }
 `
 const StyledSearch = styled.div`
-        width: 20%;
-        margin: 40px 0px 40px 40%;
+        margin-top: 20px;
+        display:flex;
+        justify-content: center;
         button{
                 color:#EDEDED;
                 background-color: #8D2828;

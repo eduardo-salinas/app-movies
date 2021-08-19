@@ -6,11 +6,9 @@ justify-content: center;
 align-items: center;
 margin-top: 50px;
 .detail{
-    max-width: 85%;
     img{
         float: left;
         height: 650px;
-        max-width: 40%;
     }
 }
 
@@ -21,12 +19,12 @@ margin-top: 50px;
     h4{
         font-size: 1.3rem;
     }
-    h5{
-        font-size: 4rem;
+    div{
+        font-size: 2rem;
         text-align:center;
     }
     p{
-        font-size: 2rem;
+        font-size: 1rem;
         text-align:center;
     }
 }

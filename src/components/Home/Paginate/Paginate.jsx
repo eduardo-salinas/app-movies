@@ -2,6 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { getMovies } from "../../../redux/actions";
 import { StyledPag } from "../styled";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Pagination } from "react-bootstrap";
 
 const Paginate = ({ pageNumber, setPageNumber, search }) => {
     const dispatch = useDispatch();
@@ -11,8 +13,7 @@ const Paginate = ({ pageNumber, setPageNumber, search }) => {
     };
     return (
         <StyledPag>
-            <nav>
-                <ul className="pagination">
+            <Pagination >
                     {pageNumber <= 1 ?
                         <li class="page-item disabled">
                             <button className="page-link" href="#" tabindex="-1"><span >&laquo;</span></button>
@@ -26,7 +27,7 @@ const Paginate = ({ pageNumber, setPageNumber, search }) => {
                     {pageNumber >= 5 &&
                         <>
                             <li className="page-item"><button onClick={() => handleClick(1)} className="page-link" >1</button></li>
-                            <li className="page-item"><button className="page-link" > ... </button></li>
+                            <li className="page-item disabled"><button className="page-link" > ... </button></li>
                         </>
                     }
                     <li class="page-item disabled">
@@ -40,8 +41,7 @@ const Paginate = ({ pageNumber, setPageNumber, search }) => {
                             <span >&raquo;</span>
                         </button>
                     </li>
-                </ul>
-            </nav>
+            </Pagination>
         </StyledPag>
     )
 };

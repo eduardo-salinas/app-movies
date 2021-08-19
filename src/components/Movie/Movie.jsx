@@ -5,6 +5,8 @@ import load from "../../assets/tenor.gif"
 import toast, { Toaster } from 'react-hot-toast';
 import { FcRating } from 'react-icons/fc';
 import StyledMovie from "./styled.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card } from 'react-bootstrap';
 
 const Movie = ({ match }) => {
     const dispatch = useDispatch();
@@ -13,12 +15,12 @@ const Movie = ({ match }) => {
 
     useEffect(() => {
         dispatch(getMovieDetail(match.params.id))
-    }, [dispatch,match.params.id]);
+    }, [dispatch, match.params.id]);
     useEffect(() => {
         store.moviesFavorites.map(movie => movie.imdbID === match.params.id ?
             setFavDetail(true) : false);
         return () => setFavDetail(false);
-    }, [dispatch, store.moviesFavorites,match.params.id]);
+    }, [dispatch, store.moviesFavorites, match.params.id]);
 
     const handleClick = () => {
         if (favDetail) {
@@ -41,21 +43,21 @@ const Movie = ({ match }) => {
                                 src={store.movieDetail.Poster}
                                 alt="not found"
                             />
-                            <div className="card text-white bg-dark mb-3">
-                                <div className="card-body">
-                                    <h5 className="card-title">{store.movieDetail.Title}</h5>
+                            <Card border="danger" style={{ width: '50rem' }}>
+                                <Card.Body>
+                                <Card.Title>{store.movieDetail.Title}</Card.Title>
                                     <br />
-                                    <h4 className="card-text">⭐<b>Rating in Imdb:</b> {store.movieDetail.imdbRating}</h4>
-                                    <h4 className="card-text">🗓<b>Year:</b> {store.movieDetail.Year}</h4>
-                                    <h4 className="card-text">🎞<b>Genre:</b> {store.movieDetail.Genre}</h4>
-                                    <h4 className="card-text">👨‍🎨<b>Writer:</b> {store.movieDetail.Writer}</h4>
-                                    <h4 className="card-text">👨‍🎤<b>Actors:</b> {store.movieDetail.Actors}</h4>
-                                    <h4 className="card-text">⌛<b>RunTime:</b> {store.movieDetail.Runtime}</h4>
-                                    <p className="card-title"><b>Resume</b> <br /> {store.movieDetail.Plot}</p>
+                                    <Card.Text>⭐<b>Rating in Imdb:</b> {store.movieDetail.imdbRating}</Card.Text>
+                                    <Card.Text>🗓<b>Year:</b> {store.movieDetail.Year}</Card.Text>
+                                    <Card.Text>🎞<b>Genre:</b> {store.movieDetail.Genre}</Card.Text>
+                                    <Card.Text>👨‍🎨<b>Writer:</b> {store.movieDetail.Writer}</Card.Text>
+                                    <Card.Text>👨‍🎤<b>Actors:</b> {store.movieDetail.Actors}</Card.Text>
+                                    <Card.Text>⌛<b>RunTime:</b> {store.movieDetail.Runtime}</Card.Text>
+                                    <Card.Text><b>Resume</b> <br /> {store.movieDetail.Plot}</Card.Text>
                                     <br />
-                                    <h4 className="card-text">🏆Awards: {store.movieDetail.Awards}</h4>
+                                    <Card.Text>🏆Awards: {store.movieDetail.Awards}</Card.Text>
                                     <br />
-                                    <div className="card-img-overlay">
+                                    <Card.ImgOverlay>
                                         <button className="btn" onClick={handleClick}>
                                             {favDetail ? <FcRating className="infav" /> :
                                                 <FcRating className="favorite" />}
@@ -64,9 +66,9 @@ const Movie = ({ match }) => {
                                             position="top-center"
                                             reverseOrder={false}
                                         />
-                                    </div>
-                                </div>
-                            </div>
+                                    </Card.ImgOverlay>
+                                </Card.Body>
+                            </Card>
                         </div>
                 )}
         </StyledMovie>

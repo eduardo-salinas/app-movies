@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addMovieFavorite } from "../../../redux/actions";
 import { FcRating } from "react-icons/fc";
-import {StyledMovie} from "../styled.js";
+import { StyledMovie } from "../styled.js";
 import { useEffect } from "react";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card } from "react-bootstrap";
 
 const MovieItem = ({ id, title, img, movie }) => {
     const [fav, setFav] = useState(false);
@@ -28,26 +30,26 @@ const MovieItem = ({ id, title, img, movie }) => {
 
     return (
         <StyledMovie>
-            <div key={`id ${id}`} className="card text-white bg-danger mb-3">
-                <NavLink className="card-header" to={`/movie/${id}`}>
-                    <h5 >
+            <Card border="danger" key={`id ${id}`} style={{ width: '22rem' }}>
+                <NavLink className="title" to={`/movie/${id}`}>
+                    <Card.Title>
                         {title}
-                    </h5>
+                    </Card.Title>
                 </NavLink>
-                <div  className="card h-100">
-                    <img src={img} className="card-img" alt="notfound" />
-                    <div className="card-img-overlay">
-                        <button className="btn" onClick={handleClick}>
-                            {fav ? <FcRating className="infav" /> :
-                                <FcRating className="favorite" />}
-                        </button>
-                        <Toaster
-                            position="top-center"
-                            reverseOrder={false}
-                        />
-                    </div>
-                </div>
-            </div>
+                <Card.Img variant="bottom" src={img} alt="notfound" />
+                <Card border="danger">
+                <Card.ImgOverlay>
+                    <button className="btn" onClick={handleClick}>
+                        {fav ? <FcRating className="infav" /> :
+                            <FcRating className="favorite" />}
+                    </button>
+                    <Toaster
+                        position="top-center"
+                        reverseOrder={false}
+                    />
+                </Card.ImgOverlay>
+                </Card>
+            </Card>
         </StyledMovie>
     )
 };

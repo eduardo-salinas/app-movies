@@ -4,8 +4,9 @@ const StyledNav = styled.div`
 .navbar {   
     background-color: #8D2828;
 }
-.navbar-brand{
+.link{
     color:#EDEDED;
+    text-decoration:none;
 }
 `
 
