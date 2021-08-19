@@ -2,7 +2,7 @@
     <img src='./images/favicon.png' </img>
 </p>
 
-# Food-App
+# Cinema-Movies
 - Proyecto realizado para fines practicos durante el Bootcamp [Soy Henry](https://www.soyhenry.com/) 
 - Debia realizar una web de series y peliculas. Donde renderice las mismas y pueda ver sus detalles. Ademas poder agregarlas y eliminarlas de una lista de favoritos.
 Los estilos en este proyecto fueron realizados con Bootstrap y es full responsive.
