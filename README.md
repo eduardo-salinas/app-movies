@@ -1,5 +1,5 @@
 <p align='left'>
-    <img src='./images/cooking.png' </img>
+    <img src='./images/favicon.png' </img>
 </p>
 
 # Food-App
